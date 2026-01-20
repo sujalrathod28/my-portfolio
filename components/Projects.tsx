@@ -24,151 +24,99 @@ interface Project {
   features: string[];
   challenges: string[];
 }
+const projects: Project[] = [
+  {
+    id: 1,
+    title: 'PetFamily',
+    description: 'Social networking platform for pet lovers',
+    longDescription:
+      'PetFamily is a full-stack social networking platform inspired by Instagram and LinkedIn, built for pet lovers. Users can create profiles, post content, share reels, connect with others, chat in real-time, and explore pet-related products and services.',
+    image: '/projects/pet_family.png',
+    tags: ['Next.js', 'React', 'Node.js', 'MongoDB', 'Socket.io'],
+    demoUrl: 'https://petfamily.in/',
+    githubUrl: '',
+    features: [
+      'User authentication and profile management',
+      'Posts, reels, explore feed',
+      'Follow and connection system',
+      'Real-time chat and notifications',
+      'Pet products e-commerce module',
+      'Pet services listing (vet, grooming, etc.)',
+    ],
+    challenges: [
+      'Designing scalable social feed architecture',
+      'Managing real-time chat and notifications',
+      'Handling relational data like followers and connections',
+    ],
+  },
+  {
+    id: 2,
+    title: 'EvoJet',
+    description: 'Flight booking platform (Frontend)',
+    longDescription:
+      'EvoJet is a flight booking platform where I worked as a frontend developer, focusing on building responsive UI components and integrating APIs for flight search and booking flows.',
+    image: '/projects/evojet.png',
+    tags: ['React', 'Material UI', 'JavaScript'],
+    demoUrl: '',
+    githubUrl: '',
+    features: [
+      'Responsive flight search UI',
+      'Reusable UI components',
+      'API integration for booking workflows',
+    ],
+    challenges: [
+      'Designing scalable UI components',
+      'Maintaining consistency across large UI screens',
+    ],
+  },
+  {
+    id: 3,
+    title: 'Mello CRM',
+    description: 'CRM system for lead and workflow management',
+    longDescription:
+      'Mello CRM is an internal CRM platform designed to manage leads and improve team collaboration. I contributed to both frontend development and API integration.',
+    image: '/projects/mellow_crm_logo.jpg',
+    tags: ['React', 'Node.js', 'MongoDB', 'REST API'],
+    demoUrl: '',
+    githubUrl: '',
+    features: [
+      'Lead tracking dashboard',
+      'Google Sheets integration',
+      'Role-based data handling',
+    ],
+    challenges: [
+      'Handling dynamic CRM workflows',
+      'Optimizing API performance',
+    ],
+  },
+  {
+    id: 4,
+    title: 'Lenovo Leap',
+    description: 'E-learning platform with video-based learning',
+    longDescription:
+      'Lenovo Leap is an e-learning platform allowing admins to manage courses and users to watch topic-wise videos with progress tracking.',
+    // image: '/projects/lenovo-leap.png',
+    image:'https://leapnextgenscholar.in/assets/textlogo-Dc3TC8KY.png',
+    tags: ['React', 'Node.js', 'MongoDB', 'JWT'],
+    demoUrl: 'https://leapnextgenscholar.in/',
+    githubUrl: '',
+    features: [
+      'Course and topic management',
+      'Video-based learning system',
+      'User authentication and progress tracking',
+    ],
+    challenges: [
+      'Managing dynamic course structures',
+      'Tracking user learning progress efficiently',
+    ],
+  },
+];
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filter, setFilter] = useState('All');
 
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce application with payment integration',
-      longDescription: 'A comprehensive e-commerce platform built with the MERN stack, featuring user authentication, product management, shopping cart functionality, and secure payment processing.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
-      demoUrl: 'https://demo.example.com',
-      githubUrl: 'https://github.com/example',
-      features: [
-        'User authentication and authorization',
-        'Product catalog with search and filters',
-        'Shopping cart and wishlist functionality',
-        'Secure payment processing with ccavenue',
-        'Order management and tracking',
-        'Admin dashboard for inventory management'
-      ],
-      challenges: [
-        'Implementing secure payment processing',
-        'Optimizing database queries for large product catalogs',
-        'Managing complex state for shopping cart across sessions'
-      ]
-    },
-    {
-      id: 2,
-      title: 'Task Management App',
-      description: 'Collaborative project management tool with real-time updates',
-      longDescription: 'A collaborative task management application that enables teams to organize projects, assign tasks, and track progress with real-time notifications and updates.',
-      image: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Socket.io', 'Prisma'],
-      demoUrl: 'https://demo.example.com',
-      githubUrl: 'https://github.com/example',
-      features: [
-        'Real-time collaboration with Socket.io',
-        'Drag-and-drop task management',
-        'Team member invitations and roles',
-        'File attachments and comments',
-        'Progress tracking and analytics',
-        'Mobile-responsive design'
-      ],
-      challenges: [
-        'Implementing real-time synchronization across multiple users',
-        'Managing complex relational data with Prisma',
-        'Optimizing performance for large teams and projects'
-      ]
-    },
-    {
-      id: 3,
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for social media management',
-      longDescription: 'A comprehensive social media analytics dashboard that aggregates data from multiple platforms and provides insights through interactive charts and reports.',
-      image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Node.js', 'MongoDB', 'Chart.js', 'REST API'],
-      demoUrl: 'https://demo.example.com',
-      githubUrl: 'https://github.com/example',
-      features: [
-        'Multi-platform social media integration',
-        'Interactive charts and visualizations',
-        'Scheduled post management',
-        'Engagement analytics and insights',
-        'Custom report generation',
-        'Team collaboration features'
-      ],
-      challenges: [
-        'Integrating multiple social media APIs',
-        'Processing and visualizing large datasets',
-        'Implementing efficient data caching strategies'
-      ]
-    },
-    {
-      id: 4,
-      title: 'Learning Management System',
-      description: 'Educational platform with course management and video streaming',
-      longDescription: 'A comprehensive learning management system that allows instructors to create courses, upload content, and track student progress, while providing students with an interactive learning experience.',
-      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Next.js', 'Nest.js', 'PostgreSQL', 'AWS S3', 'JWT'],
-      demoUrl: 'https://demo.example.com',
-      githubUrl: 'https://github.com/example',
-      features: [
-        'Course creation and management',
-        'Video streaming with progress tracking',
-        'Quiz and assignment system',
-        'Student progress analytics',
-        'Discussion forums and messaging',
-        'Certificate generation'
-      ],
-      challenges: [
-        'Implementing secure video streaming',
-        'Managing large file uploads to AWS S3',
-        'Creating a flexible course structure system'
-      ]
-    },
-    {
-      id: 5,
-      title: 'Real Estate Platform',
-      description: 'Property listing platform with advanced search and maps',
-      longDescription: 'A modern real estate platform that connects buyers, sellers, and agents with advanced property search capabilities, interactive maps, and comprehensive property management tools.',
-      image: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Express', 'MongoDB', 'Mapbox', 'Cloudinary'],
-      demoUrl: 'https://demo.example.com',
-      githubUrl: 'https://github.com/example',
-      features: [
-        'Advanced property search with filters',
-        'Interactive maps with property markers',
-        'Virtual tour integration',
-        'Agent and buyer messaging system',
-        'Property comparison tools',
-        'Mortgage calculator integration'
-      ],
-      challenges: [
-        'Integrating complex map functionality',
-        'Optimizing search performance for large datasets',
-        'Managing high-resolution property images'
-      ]
-    },
-    {
-      id: 6,
-      title: 'Healthcare Appointment System',
-      description: 'Medical appointment booking and management system',
-      longDescription: 'A comprehensive healthcare management system that streamlines appointment booking, patient records management, and communication between healthcare providers and patients.',
-      image: 'https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Next.js', 'Node.js', 'MySQL', 'Calendar API', 'HIPAA'],
-      demoUrl: 'https://demo.example.com',
-      githubUrl: 'https://github.com/example',
-      features: [
-        'Online appointment booking system',
-        'Patient medical records management',
-        'Doctor availability scheduling',
-        'Automated appointment reminders',
-        'Prescription management',
-        'HIPAA-compliant security measures'
-      ],
-      challenges: [
-        'Ensuring HIPAA compliance and data security',
-        'Managing complex scheduling algorithms',
-        'Implementing secure patient data handling'
-      ]
-    }
-  ];
+  
 
   const categories = ['All', 'React', 'Next.js', 'Node.js', 'Full Stack'];
 
@@ -259,7 +207,7 @@ const Projects = () => {
                     variant="outline"
                     className="border-white/30 text-white hover:bg-white/10 flex-1"
                   >
-                    <ExternalLink className="h-4 w-4 mr-2" />
+                    <ExternalLink className="h-4 w-4 mr-2" to={project?.demoUrl}/>
                     Demo
                   </Button>
                   <Button
@@ -331,7 +279,7 @@ const Projects = () => {
                   
                   <div className="flex space-x-4 pt-4">
                     <Button className="bg-primary hover:bg-primary/90">
-                      <ExternalLink className="h-4 w-4 mr-2" />
+                      <ExternalLink className="h-4 w-4 mr-2" href={selectedProject.demoUrl} to={selectedProject.demoUrl} />
                       View Live Demo
                     </Button>
                     <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">

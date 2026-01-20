@@ -1,61 +1,66 @@
 'use client';
 
-import { Github, Linkedin, Mail, Twitter, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, ArrowUp } from 'lucide-react';
+
+const SOCIAL_LINKS = [
+  {
+    icon: Github,
+    href: 'https://github.com/your-github-username',
+    label: 'GitHub',
+  },
+  {
+    icon: Linkedin,
+    href: 'https://www.linkedin.com/in/sujal-rathore-72b279220/',
+    label: 'LinkedIn',
+  },
+  {
+    icon: Mail,
+    href: 'mailto:sujalrathore76@gmail.com',
+    label: 'Email',
+  },
+];
+
+const QUICK_LINKS = [
+  { label: 'About', id: 'about' },
+  { label: 'Skills', id: 'skills' },
+  { label: 'Projects', id: 'projects' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Contact', id: 'contact' },
+];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    {
-      icon: <Github className="h-5 w-5" />,
-      href: 'https://github.com',
-      label: 'GitHub'
-    },
-    {
-      icon: <Linkedin className="h-5 w-5" />,
-      href: 'https://linkedin.com',
-      label: 'LinkedIn'
-    },
-    {
-      icon: <Twitter className="h-5 w-5" />,
-      href: 'https://twitter.com',
-      label: 'Twitter'
-    },
-    {
-      icon: <Mail className="h-5 w-5" />,
-      href: 'mailto:alex.johnson@email.com',
-      label: 'Email'
-    }
-  ];
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <footer className="bg-black/50 backdrop-blur-md border-t border-white/10 py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+      <div className="container mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <div className="text-2xl font-bold gradient-text mb-4">
-              Alex Johnson
-            </div>
-            <p className="text-gray-400 mb-4 leading-relaxed">
-              Full Stack Developer specializing in MERN stack development. 
-              Creating digital solutions that make a difference.
+            <h2 className="text-2xl font-bold gradient-text mb-4">
+              Sujal Rathore
+            </h2>
+            <p className="text-gray-400 leading-relaxed max-w-md">
+              MERN Stack Developer with 2+ years of experience building
+              scalable, real-world web applications using React, Next.js,
+              Node.js, and MongoDB.
             </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((link, index) => (
+
+            <div className="flex gap-4 mt-6">
+              {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
                 <a
-                  key={index}
-                  href={link.href}
+                  key={label}
+                  href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full glass-effect hover:bg-white/10 transition-all duration-300 hover:scale-110"
-                  aria-label={link.label}
+                  aria-label={label}
+                  className="p-2 rounded-full glass-effect hover:bg-white/10 hover:scale-110 transition"
                 >
-                  {link.icon}
+                  <Icon className="h-5 w-5 text-gray-300" />
                 </a>
               ))}
             </div>
@@ -65,54 +70,35 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
-                <li key={item}>
+              {QUICK_LINKS.map((link) => (
+                <li key={link.id}>
                   <button
-                    onClick={() => {
-                      const element = document.getElementById(item.toLowerCase());
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
+                    onClick={() => scrollTo(link.id)}
+                    className="text-gray-400 hover:text-white transition"
                   >
-                    {item}
+                    {link.label}
                   </button>
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Services</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>Full Stack Development</li>
-              <li>Frontend Development</li>
-              <li>Backend Development</li>
-              <li>Database Design</li>
-              <li>API Development</li>
-              <li>Technical Consulting</li>
-            </ul>
-          </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 mb-4 md:mb-0">
-              <p className="flex items-center">
-                © {currentYear} Alex Johnson. Made with{' '}
-                <Heart className="h-4 w-4 mx-1 text-red-500" fill="currentColor" />
-                and lots of coffee.
-              </p>
-            </div>
-            <button
-              onClick={scrollToTop}
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-            >
-              Back to top ↑
-            </button>
-          </div>
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-gray-400 text-sm flex items-center">
+            © {currentYear} Sujal Rathore. Built with{' '}
+            <Heart className="h-4 w-4 mx-1 text-red-500" fill="currentColor" />
+            using Next.js
+          </p>
+
+          <button
+            onClick={() => scrollTo('home')}
+            className="flex items-center gap-1 text-gray-400 hover:text-white transition text-sm"
+            aria-label="Back to top"
+          >
+            Back to top <ArrowUp className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </footer>

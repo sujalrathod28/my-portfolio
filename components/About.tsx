@@ -1,31 +1,35 @@
-'use client';
+"use client";
 
-import { Code2, Database, Globe, Smartphone } from 'lucide-react';
+import { Code2, Database, Globe, Smartphone } from "lucide-react";
 
+const HIGHLIGHTS = [
+  {
+    icon: Code2,
+    title: "Frontend Development",
+    description: "React, Next.js, TypeScript, Tailwind CSS",
+  },
+  {
+    icon: Database,
+    title: "Backend Development",
+    description: "Node.js, Express.js, MongoDB, MySQL",
+  },
+  {
+    icon: Globe,
+    title: "Full Stack Solutions",
+    description: "End-to-end scalable web applications",
+  },
+  {
+    icon: Smartphone,
+    title: "Responsive Design",
+    description: "Mobile-first, cross-browser compatibility",
+  },
+];
+const STATS = [
+  { value: '2+', label: 'Years Experience' },
+  { value: '5+', label: 'Projects Completed' },
+  { value: '100%', label: 'Client Satisfaction' },
+];
 const About = () => {
-  const highlights = [
-    {
-      icon: <Code2 className="h-8 w-8" />,
-      title: 'Frontend Development',
-      description: 'React, Next.js, TypeScript, Tailwind CSS',
-    },
-    {
-      icon: <Database className="h-8 w-8" />,
-      title: 'Backend Development',
-      description: 'Node.js, Express.js, MongoDB, MySQL',
-    },
-    {
-      icon: <Globe className="h-8 w-8" />,
-      title: 'Full Stack Solutions',
-      description: 'End-to-end web application development',
-    },
-    {
-      icon: <Smartphone className="h-8 w-8" />,
-      title: 'Responsive Design',
-      description: 'Mobile-first, cross-platform compatibility',
-    },
-  ];
-
   return (
     <section id="about" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,18 +43,21 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div className="space-y-6">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">
-              Passionate About Creating Digital Solutions
+              Building Scalable & User-Focused Web Solutions
             </h3>
             <p className="text-gray-300 text-lg leading-relaxed">
-              With over 2 years of experience in full-stack development, I specialize in the MERN stack 
-              and have a passion for creating scalable, efficient web applications. My journey began with 
-              a curiosity for how things work on the web, and it has evolved into a comprehensive skill set 
-              spanning both frontend and backend technologies.
+              With over 2 years of experience in full-stack development, I
+              specialize in the MERN stack and have a passion for creating
+              scalable, efficient web applications. My journey began with a
+              curiosity for how things work on the web, and it has evolved into
+              a comprehensive skill set spanning both frontend and backend
+              technologies.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed">
-              I believe in writing clean, maintainable code and staying up-to-date with the latest 
-              industry trends and best practices. Currently expanding my skills with advanced technologies 
-              to provide even better solutions for clients and organizations.
+              I believe in writing clean, maintainable code and staying
+              up-to-date with the latest industry trends and best practices.
+              Currently expanding my skills with advanced technologies to
+              provide even better solutions for clients and organizations.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <span className="px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-medium">
@@ -67,33 +74,31 @@ const About = () => {
 
           <div className="relative">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {highlights.map((item, index) => (
+              {HIGHLIGHTS.map(({ icon: Icon, title, description }) => (
                 <div
-                  key={index}
+                  key={title}
                   className="glass-effect p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 hover:scale-105"
                 >
-                  <div className="text-primary mb-4">{item.icon}</div>
-                  <h4 className="text-white font-semibold mb-2">{item.title}</h4>
-                  <p className="text-gray-400 text-sm">{item.description}</p>
+                  {/* <div className="text-primary mb-4">{Icon}</div> */}
+                  <Icon className="h-8 w-8 text-primary mb-4" />
+
+                  <h4 className="text-white font-semibold mb-2">{title}</h4>
+                  <p className="text-gray-400 text-sm">{description}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 text-center">
-          <div className="glass-effect p-8 rounded-2xl">
-            <div className="text-4xl font-bold gradient-text mb-2">2+</div>
-            <div className="text-gray-300">Years Experience</div>
-          </div>
-          <div className="glass-effect p-8 rounded-2xl">
-            <div className="text-4xl font-bold gradient-text mb-2">5+</div>
-            <div className="text-gray-300">Projects Completed</div>
-          </div>
-          <div className="glass-effect p-8 rounded-2xl">
-            <div className="text-4xl font-bold gradient-text mb-2">100%</div>
-            <div className="text-gray-300">Client Satisfaction</div>
-          </div>
+       <div className="grid md:grid-cols-3 gap-8 text-center">
+          {STATS.map(({ value, label }) => (
+            <div key={label} className="glass-effect p-8 rounded-2xl">
+              <div className="text-4xl font-bold gradient-text mb-2">
+                {value}
+              </div>
+              <div className="text-gray-300">{label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
